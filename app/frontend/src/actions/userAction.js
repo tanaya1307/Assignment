@@ -42,7 +42,7 @@ export const loadUser = () => async (dispatch) => {
     try {
         const token = localStorage.getItem("userToken");
         if (token) {
-            const config = { headers: { "Conetnt-Type": "application/json" } };
+            const config = { headers: { "Content-Type": "application/json" } }; //typo corrected from Conetnt-Type
             const res = await axios.post("/get_user_data", { token }, config);
             dispatch({ type: LOAD_SUCCESS, payload: res.data.user });
         } else {
